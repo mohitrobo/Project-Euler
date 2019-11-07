@@ -7,12 +7,10 @@ start = time.time()
 #initial two numbers of the sequence
 a,b = 1,2
 
-#variable to store addition
+#initial value for addition
 add = 2
 
-while True:
-    if (a+b) > 4000000: #upto value = 4 million
-        break
+while (a+b)<=4000000:
     if (a+b)%2 == 0:
         add += (a+b)
 
