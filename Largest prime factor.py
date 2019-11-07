@@ -1,32 +1,36 @@
 #program to find the largest prime factor of a number
 
+import time
+start = time.time()
 #Enter the number for which prime factor needs to be found
-num = int(input("Enter the number: "))
+num = 600851475143
 
-#empty list for storing prime factors
-prime_factor = []
+#variable for storing prime factors
+prime_factor = 0
 
-lower = 2
-upper = 100000
+x = 2
 
 #for finding and incrementing the prime factors
-for x in range(lower, upper+1):
-    if x > 1:
-        for i in range(2,x):
-            if (x%i) == 0:
-                break
-
-        #Once prime factor is found
+while x>1:
+     for i in xrange(2,x): #for finding prime numbers
+        if (x%i) == 0:
+            x+=2
+            break
+    #Once prime factor is found
+    else:
+        #while loop to check if the same prime factor can do the division
+        while(num%x == 0): 
+            num = num/x
+        prime_factor = max(prime_factor,x)
+        if(x%2==0):
+            x+=1
         else:
-            #while loop to check if the same prime factor can do the division
-            while(num%x == 0): 
-                prime_factor.append(x)
-                num = num//x
+            x+=2
 
     #Once the quotient obtained is 1
     if num == 1:
         break
 
 print(prime_factor)
-print(max(prime_factor))
-
+end = time.time()
+print(end-start)
