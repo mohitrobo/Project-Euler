@@ -1,26 +1,29 @@
 #what is the 10001st prime number
 
-#lowest prime number
-lower = 3
+from math import sqrt
+import time
+start = time.time()
 
-#empty list to store prime number
-prime_list = [2]
+#variable for prime number
+prime = 3
+
+#variable to count the number of primes
+count = 1
 
 #condition for while loop
 check = True
 
 while check:
-    if lower>1:
-        for i in range(2,lower):
-            if (lower%i) == 0:
-                break
-        else:
-            prime_list.append(lower)
-            if prime_list.index(lower) == 10000:
-                check = False
-                print("The 10001th prime number: {}".format(lower))
-                break
+    for i in range(2,int(sqrt(prime))+1):
+        if (prime%i) == 0:
+            break
+    else:
+        count += 1
+        if count == 10001:
+            check = False
+            print("The 10001th prime number: {}".format(prime))
+            
+    prime +=2
+end = time.time()
+print(end-start)
 
-    lower +=2
-
-#print(prime_list)
