@@ -1,6 +1,7 @@
 #calculate pythagorean triplet and sum of the number=1000
 #a<b<c
-
+import time
+start = time.time()
 
 def pythagorean():
     for a in range(500):
@@ -11,4 +12,6 @@ def pythagorean():
                 return a*b*c
 
 product = pythagorean()
+end = time.time()
 print(product)
+print(end-start)
