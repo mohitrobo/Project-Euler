@@ -1,4 +1,6 @@
 #Largest product in series
+import time
+start = time.time()
 
 #variable to store largest product
 largest_product = 0
@@ -15,8 +17,8 @@ for i in range(0 , len(s)-12):  #checking for 13 consecutive digits
         product *= int(s[j])
 
     #check whether the product is greater than largest product
-    if product > largest_product:
-        largest_product = product
+    largest_product = max(largest_product,product)
 
-
+end = time.time()
 print(largest_product)
+print(end-start)
