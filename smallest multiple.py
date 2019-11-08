@@ -1,25 +1,14 @@
-#smallest positive number divisible by all numbers from 1 to 20
-# as we know that the smallest positive number divisible by numbers 1 to 10 is 2520, so we will start from 2520
+#The smallest number divisible by a set of numbers is known as LCM of set of numbers
+# Hence LCM(k1, k2, ..., k_m) = LCM(...(LCM(LCM(k1, k2), k3)...), k_m).
+from fractions import gcd
+import time
 
-#starting number
-num = 232792500
+start1 = time.time()
 
-#condition to remain in while loop
-check = True
-
-while check:
-    num +=1
-    #list to check for boolean value
-    check_list = [0]
-
-    for x in range(2,21):  #check division by numbers
-        check_list.append(bool(num%x))
-
-        #check if any element in list is True
-        if any(check_list):
-            break  #breaks from for loop
-        elif x==20: #all values in list turns out to be false
-            check = False
-
-print(num)
-            
+#variable for storing the LCM of numbers
+lcm = 1
+for x in xrange(1,21):
+    lcm *= x/gcd(x,lcm)
+print(lcm)
+end1 = time.time()
+print(end1-start1)
