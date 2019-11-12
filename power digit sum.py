@@ -1,6 +1,8 @@
 #sum of the digits obtained from 2^value
 
 import math
+import time
+start = time.time()
 
 #function to calculate sum of digits
 def power_sum(n):
@@ -11,6 +13,6 @@ def power_sum(n):
 
     return add
 
-
-exponent = int(input("Enter the exponent: "))
-print(power_sum(exponent))
+print(power_sum(1000))
+end = time.time()
+print(end-start)
