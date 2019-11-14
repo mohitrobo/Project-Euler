@@ -2,6 +2,8 @@
 
 from datetime import date
 from collections import Counter
+import time
+start = time.time()
 
 counter = Counter()
 
@@ -10,4 +12,6 @@ for year in range(1901,2001):  #for year in the range
         day = date(year,month,1)
         counter[day.weekday()] += 1
 
-print counter[6]
+end = time.time()        
+print counter[6]  #print number of sundays
+print(end-start)
