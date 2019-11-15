@@ -2,10 +2,10 @@
 #in order to see how factorial is calculated go to program "factorial of number"
 
 import math
+import time
+start = time.time()
 
-number = int(input("Enter the number for which factorial is to be calculated: "))
-fact = math.factorial(number)
-print(fact)
+fact = math.factorial(100)
 
 #convert factorial value into string
 s_fact = str(fact)
@@ -13,6 +13,6 @@ sum_fact = 0
 for i in range(0,len(s_fact)):
     sum_fact += int(s_fact[i])
 
+end = time.time()    
 print(sum_fact)
-
-             
+print(end-start)
