@@ -25,5 +25,5 @@ for i in range(1,10000):
             amicable_list.append(i)
             
 end = time.time()
-print("The sum of the unique amicable numbers: {}".format(unique_sum))
+print("The sum of the unique amicable numbers: {}".format(sum(amicable_list)))
 print(end-start)
