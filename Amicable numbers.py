@@ -1,15 +1,16 @@
 #to find the prime factors of a number
 #Amicable numbers
 
+import time
+start = time.time()
+
 def prime_factor(x):
     amicable_sum = 0
-    for i in range(1,x):
+    for i in range(1,(x/2)+1):
         if x%i == 0:
             amicable_sum += i
 
     return amicable_sum
-
-#num = int(input("Enter the number: "))
 
 #list to store amicable numbers
 amicable_list = []
@@ -22,24 +23,7 @@ for i in range(1,10000):
     if i == y_sum:
         if x_sum != y_sum:
             amicable_list.append(i)
-            amicable_list.append(x_sum)
-        else:
-            pass
-    else:
-        pass
-
-#unique numbers within the list
-unique_list = set(amicable_list)
-
-print(unique_list)
-
-#convert set into list as set doesn't support indexing
-list_set = list(unique_list)
-
-#sum of all amicable numbers
-unique_sum = 0
-for j in range(0,len(list_set)):
-    unique_sum += list_set[j]
-
-
+            
+end = time.time()
 print("The sum of the unique amicable numbers: {}".format(unique_sum))
+print(end-start)
