@@ -9,7 +9,6 @@ L = [1,1]
 a,b = L
 
 check = True
-
 while check:
     L.append(a+b)
     x = str(a+b)
@@ -19,8 +18,7 @@ while check:
     
     a,b = b,a+b
 
-#print(L)
-print("The index of the 1000 digit number is : {}".format(L_index))
+print("The index of the 1000 digit number is : {}".format(L_index+1))
 
 end = time.time()
 print(end-start)
