@@ -1,5 +1,8 @@
 #Number Spiral Diagonals
 
+import time
+start = time.time()
+
 #function to calculate sum
 def spiral(n):
     sum_diag = 0 #variable to store sum of diagonals
@@ -28,6 +31,6 @@ def spiral(n):
 
     return (sum_diag)
 
-
-matrix = int(input("Enter the square matrix size: "))
-print("The summation of diagonal elements of spiral matrix: {}".format(spiral(matrix)))
+print("The summation of diagonal elements of spiral matrix: {}".format(spiral(1001)))
+end = time.time()
+print(end-start)
