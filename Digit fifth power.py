@@ -1,17 +1,18 @@
 #Digit fifth power
-#problem 30 of project euler
 
+#let's assume the upper bound number be n = k*(9^5)
+#so the possible upper bound number could be in the range
+# 10^(k-1) <= k*(9^5) <= 10^(k)
+#so we find that k = 6
 
+import time
+start = time.time()
 
-#list to store digit 5th power
-digit_power = []
-
-for i in range(10,354394):
-    total = 0
-    for j in str(i):
-        total += pow(int(j),5)
-    if total == i:
-        digit_power.append(i)
-
-print(digit_power)
+add = 0 #for adding the numbers
+for i in range(10,6*(9**5)):
+    if sum([int(j)**5 for j in str(i)]) == i:
+        add += i
         
+end = time.time()
+print(add)
+print(end-start)
