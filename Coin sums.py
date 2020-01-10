@@ -1,14 +1,10 @@
 #Coin sums
-
 #solving using mathematical equation
-#https://radiusofcircle.blogspot.com/2016/05/problem-31-project-euler-solution-with-python.html
 
 import time
-
 start = time.time()
 
 counter = 0
-
 for a in xrange(0,3):  #for 100p denomination
     for b in xrange(0,1+(200-100*a)/50):  #for 50p denomination
         for c in xrange(0,1+(200-100*a-50*b)/20):  #for 20p denomination
