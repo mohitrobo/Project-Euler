@@ -1,4 +1,4 @@
-#Digit Cacelling Fractions
+#Digit Cancelling Fractions
 
 #two digit numerator and denominator to find non-trivial solutions
 #non-trivial solutions should not include 0 in both of them like, 10/20,20/30,etc
@@ -6,11 +6,13 @@
 
 
 import time
-
 start = time.time()
 
-#list to store the fractions
-non_fractions = []
+#importing fractions module
+from fractions import Fraction
+
+#store the fractions
+product = 1
 
 for N in xrange(10,100):
     for D in xrange(11,100):
@@ -32,19 +34,19 @@ for N in xrange(10,100):
                             d = int(y.replace(common[k],''))
                             if d != 0:
                                 if round(float(N)/float(D),7) == round(float(n)/float(d),7):
-                                    non_fractions.append([N,D,n,d])
+                                    product *= Fraction(n,d)
                         elif not x.count(common[k])==2 and y.count(common[k])==2:
                             n = int(x.replace(common[k],''))
                             d = int(y[0])
                             if d != 0:
                                 if round(float(N)/float(D),7) == round(float(n)/float(d),7):
-                                    non_fractions.append([N,D,n,d])
+                                    product *= Fraction(n,d)
                         else:        
                             n = int(x.replace(common[k],''))
                             d = int(y.replace(common[k],''))
                             if d != 0:
                                 if round(float(N)/float(D),7) == round(float(n)/float(d),7):
-                                    non_fractions.append([N,D,n,d])
+                                    product *= Fraction(n,d)
                         
 
                 else:
@@ -56,6 +58,6 @@ for N in xrange(10,100):
 
 
 end = time.time()
-print(non_fractions)
+print(product.denominator)
 print(end-start)
 
