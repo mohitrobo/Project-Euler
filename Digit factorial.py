@@ -1,33 +1,36 @@
 #Digit factorials
 #In order to calculate factorial,there is a program. I will use math.factorial
-#will check factorial upto 999
 
 
-import math
+from math import factorial as fact
 import time
 
 start = time.time()
 
-#list to store the number
-digit_factorial = []
 
-for i in range(10,1000000):
+#factorial of number from 0-9
+f = [fact(0),fact(1),fact(2),fact(3),fact(4),fact(5),fact(6),fact(7),fact(8),fact(9)]
+
+#store sum of numbers
+summation = 0
+
+#sum of factorials
+def factorial_digit(n):
     sum_factorial = 0 #for storing the sum of factorial of digits
-    #convert integer to string
-    s = str(i)
-    for j in s:
-        sum_factorial += math.factorial(int(j))
+    while n:
+        sum_factorial += f[n%10]
+        n //=10
+    return sum_factorial
 
+
+for i in range(10,1854721):
     #check if sum is equal to number itself
-    if i == sum_factorial:
-        digit_factorial.append(i)
+    if factorial_digit(i) == i:
+        summation += i
 
 
-#sum to store the summation of numbers
-sum_store = 0
-print(digit_factorial)
-for j in xrange(0,len(digit_factorial)):
-    sum_store += digit_factorial[j]
 
-print(sum_store)
+print(summation)
+end = time.time()
+print(end-start)
     
