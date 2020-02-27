@@ -1,18 +1,23 @@
-#Circular primes for upto 1000 numbers
+#Circular prime below 1 million
 #use slicing to circularly rotate the number 
 
+import time
+import math
 
+start = time.time()
 
 #list to store the circular prime
 list_prime = []
 
-
-for num in xrange(10,1000):
+#below 100 there are 13 such primes as given in the question
+#list to store circular prime
+for num in xrange(100,1000000):
     x = str(num)
     prime_number = []
     for i in xrange(0,len(x)):
         y = int(x[i:len(x)] + x[0:i])
-        for j in range(2,y):
+        #This will loop from 2 to int(sqrt(x))
+        for j in xrange(2,int(math.sqrt(y))+1):
             if (y%j) == 0:
                 break
         else:
@@ -22,12 +27,10 @@ for num in xrange(10,1000):
 
     if len(prime_number) == len(x):
         list_prime.extend(prime_number)
-        
-        
-            
 
-#for slicing to circularly rotate number
-#for i in range(0,len(x)):
- #   y.append(x[i:len(x)] + x[0:i])
 
-print(set(list_prime))
+count = len(set(list_prime)) + 13
+print(count)
+
+end = time.time()
+print(end-start)
