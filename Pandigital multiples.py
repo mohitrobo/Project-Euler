@@ -5,14 +5,9 @@ import time
 
 start = time.time()
 
-#list to store the concatenated number
-#concat = []
-
 max_number = 1
 
-
 for num in xrange(1,10000):
-
     #string variable to store concatenated number
     s = ""
     
@@ -29,12 +24,10 @@ for num in xrange(1,10000):
                 if '0' in a:
                     break
                 else:  #0 not present
-                    #concat.append(int(s))
                     max_number = max(max_number,int(s))
 
 
 end = time.time()
 
-#print(concat)
 print(max_number)
 print(end - start)
